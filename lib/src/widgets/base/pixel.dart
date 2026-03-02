@@ -4,7 +4,6 @@ import 'package:flutter/widgets.dart';
 
 /// A [Pixel] is the smallest unit of a pixelated design.
 /// It is a square that can be colored and sized.
-///
 class Pixel extends StatelessWidget {
   /// The minimum size of the pixel. This is to ensure that the pixel is visible.
   static const double minPixelSize = 5.0;
@@ -26,11 +25,11 @@ class Pixel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = max(minPixelSize, this.size);
+    final resolvedSize = max(minPixelSize, size);
 
     return Container(
-      width: size,
-      height: size,
+      width: resolvedSize,
+      height: resolvedSize,
       color: color,
     );
   }
