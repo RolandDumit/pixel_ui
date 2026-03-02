@@ -13,5 +13,6 @@ class PixelColors {
   /// The default color of the pixel when pressed.
   static const Color pressedPixelColor = Color(0xFF388E3C);
 
+  /// The default color of the pixel when deactivated.
   static const Color deactivatedPixelColor = Color(0xFFBDBDBD);
 }
