@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
 
+import '../utils/pixel_colors.dart';
 import 'base/pixel.dart';
+import 'base/pixel_painter.dart' show PixelationStyle;
 import 'base/pixel_stateless_widget.dart';
 
 class PixelLinearProgressIndicator extends PixelStatelessWidget {
@@ -12,8 +14,10 @@ class PixelLinearProgressIndicator extends PixelStatelessWidget {
     super.key,
     super.pixelColor,
     super.pixelSize,
+    super.pixelationStyle = PixelationStyle.minecraft,
     super.hasSpaceBetweenPixels = true,
     super.spaceBetweenPixels = Pixel.defaultPixelSpacing,
+    super.cornerRadius = 0,
     this.progress = 0,
     this.totalPixels = 24,
     this.backgroundPixelColor,
@@ -23,8 +27,8 @@ class PixelLinearProgressIndicator extends PixelStatelessWidget {
   Widget build(BuildContext context) {
     final clampedProgress = progress.clamp(0.0, 1.0).toDouble();
     final resolvedPixelSize = pixelSize ?? Pixel.minPixelSize;
-    final resolvedPixelColor = pixelColor ?? const Color(0xFF2ECC71);
-    final resolvedBackgroundColor = backgroundPixelColor ?? const Color(0xFF2D3436);
+    final resolvedPixelColor = pixelColor ?? PixelColors.pixelColor;
+    final resolvedBackgroundColor = backgroundPixelColor ?? PixelColors.deactivatedPixelColor;
     final filledPixels = (totalPixels * clampedProgress).round();
 
     return Row(
@@ -35,6 +39,8 @@ class PixelLinearProgressIndicator extends PixelStatelessWidget {
         (index) => Pixel(
           size: resolvedPixelSize,
           color: index < filledPixels ? resolvedPixelColor : resolvedBackgroundColor,
+          style: pixelationStyle,
+          cornerRadius: cornerRadius ?? 0,
         ),
       ),
     );

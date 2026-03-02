@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../utils/pixel_colors.dart';
 import 'base/pixel_painter.dart';
 
 export 'base/pixel_painter.dart' show PixelationStyle;
@@ -9,8 +10,8 @@ class PixelButton extends StatefulWidget {
     super.key,
     required this.label,
     required this.onPressed,
-    this.backgroundColor = const Color(0xFF4CAF50),
-    this.pressedColor = const Color(0xFF388E3C),
+    this.backgroundColor = PixelColors.pixelColor,
+    this.pressedColor = PixelColors.pressedPixelColor,
     this.textColor = Colors.white,
     this.padding = const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
     this.cornerRadius = 0,

@@ -2,6 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../utils/pixel_colors.dart';
+
 /// The pixelation style to apply to the shape.
 enum PixelationStyle {
   classic,
@@ -45,12 +47,12 @@ class PixelCustomPainter extends StatelessWidget {
   const PixelCustomPainter({
     super.key,
     required this.child,
-    this.fillColor = Colors.white,
+    this.fillColor = PixelColors.pixelColor,
     this.shadowOffset = 4,
     this.cornerRadius = 8,
     this.style = PixelationStyle.minecraft,
-    this.borderColor = Colors.black,
-    this.shadowColor = Colors.black54,
+    this.borderColor = PixelColors.borderColor,
+    this.shadowColor = PixelColors.shadowColor,
     this.borderWidth = 2,
     this.drawBevel = true,
   });
@@ -80,8 +82,8 @@ class PixelPainter extends CustomPainter {
     this.shadowOffset = 0,
     this.cornerRadius = 0,
     this.style = PixelationStyle.minecraft,
-    this.borderColor = Colors.black,
-    this.shadowColor = Colors.black,
+    this.borderColor = PixelColors.borderColor,
+    this.shadowColor = PixelColors.shadowColor,
     this.borderWidth = 2,
     this.drawBevel = true,
   });
